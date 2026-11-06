@@ -1,0 +1,18 @@
+<header>
+  <h1>DanNews</h1>
+  <nav>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
+    <a routerLink="/noticias" routerLinkActive="active">Noticias</a>
+    <a routerLink="/favoritos" routerLinkActive="active">Favoritos</a>
+    <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
+    <a routerLink="/gestion" routerLinkActive="active">Gestión</a>
+  </nav>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+  <p>&copy; 2026 DanNews. Todos los derechos reservados.</p>
+</footer>

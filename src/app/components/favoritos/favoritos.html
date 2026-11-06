@@ -1,0 +1,12 @@
+<h2>Mis Noticias Favoritas</h2>
+
+<section class="grid-noticias">
+  <p *ngIf="favoritos.length === 0">Aún no has guardado noticias favoritas.</p>
+  
+  <article class="tarjeta-noticia" *ngFor="let noticia of favoritos">
+    <img [src]="noticia.imagen" [alt]="noticia.titulo">
+    <h3>{{ noticia.titulo }}</h3>
+    <p>{{ noticia.resumen }}</p>
+    <button (click)="quitarFavorito(noticia.id)">❌ Quitar</button>
+  </article>
+</section>

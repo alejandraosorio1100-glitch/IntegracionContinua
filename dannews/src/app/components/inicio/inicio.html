@@ -1,0 +1,20 @@
+<section class="banner-inicio">
+  <div class="banner-texto">
+    <p>Las últimas novedades de tecnología y software.</p>
+    <p>Explora los artículos más relevantes de la semana.</p>
+  </div>
+  <a routerLink="/noticias" class="btn-catalogo">Ver catálogo completo.</a>
+</section>
+
+<h2 class="subtitulo-seccion">Noticias destacadas</h2>
+
+<section class="grid-noticias">
+  <article class="tarjeta-noticia" *ngFor="let noticia of noticias">
+    <a [routerLink]="['/detalle']" [queryParams]="{ id: noticia.id }" style="text-decoration: none; color: inherit;">
+      <img [src]="noticia.imagen" [alt]="noticia.titulo">
+      <h3>{{ noticia.titulo }}</h3>
+    </a>
+    <p>{{ noticia.resumen }}</p>
+    <button (click)="guardarFavorito(noticia.id)">⭐ Guardar en favoritos</button>
+  </article>
+</section>

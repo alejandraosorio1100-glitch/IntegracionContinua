@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DanNews - Gestión de Noticias</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <header>
+    <h1>DanNews</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="noticias.html">Noticias</a>
+      <a href="favoritos.html">Favoritos</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="gestion.html" class="activo">Gestión</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Panel de Gestión de Noticias</h2>
+
+    <div style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+      <!-- Formulario Agregar -->
+      <div class="tarjeta-formulario" style="flex: 1; min-width: 300px; max-width: 450px;">
+        <h3>Agregar Nueva Noticia</h3>
+        <form id="form-crud" style="margin-top: 15px;">
+          <div style="margin-bottom: 12px; text-align: left;">
+            <label style="font-weight: bold; display: block; margin-bottom: 5px;">Título *</label>
+            <input type="text" id="crud-titulo" placeholder="Título..." style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box;" required>
+          </div>
+
+          <div style="margin-bottom: 12px; text-align: left;">
+            <label style="font-weight: bold; display: block; margin-bottom: 5px;">Resumen *</label>
+            <textarea id="crud-resumen" rows="3" placeholder="Descripción breve..." style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box;" required></textarea>
+          </div>
+
+          <div style="margin-bottom: 15px; text-align: left;">
+            <label style="font-weight: bold; display: block; margin-bottom: 5px;">Ruta de Imagen</label>
+            <input type="text" id="crud-imagen" placeholder="img/noticia1.jpg" style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box;">
+          </div>
+
+          <button type="submit" class="btn-catalogo" style="width: 100%; border: none; cursor: pointer;">Publicar Noticia</button>
+        </form>
+      </div>
+
+      <!-- Lista Noticias Creadas -->
+      <div style="flex: 1; min-width: 300px; max-width: 500px;">
+        <h3>Noticias Publicadas</h3>
+        <div id="contenedor-crud" class="grid-noticias" style="margin-top: 15px;"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 DanNews - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/gestion.js"></script>
+</body>
+</html>

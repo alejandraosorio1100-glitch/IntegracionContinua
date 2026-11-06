@@ -1,0 +1,32 @@
+<main class="contenedor-contacto">
+  <div class="tarjeta-formulario" style="max-width: 800px; text-align: left;">
+    <h2>Gestión de notas / Noticias del Admin</h2>
+    <p style="margin-bottom: 20px; color: #666; font-size: 14px;">
+      Panel para organizar, agregar, crear y administrar las publicaciones del catálogo.
+    </p>
+
+    <!-- Formulario para agregar una noticia rápida -->
+    <form (ngSubmit)="agregarNota()" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; background: #fdfdfd; padding: 18px; border-radius: 12px; border: 1px solid #eee;">
+      <h3 style="font-size: 16px; margin-bottom: 5px;">Agregar nueva nota</h3>
+      <input type="text" [(ngModel)]="titulo" name="titulo" placeholder="Título de la nota" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+      <textarea [(ngModel)]="resumen" name="resumen" placeholder="Resumen o descripción corta de la nota o noticias" rows="3" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-family: inherit;"></textarea>
+      <button type="submit" class="btn-catalogo" style="align-self: flex-start; cursor: pointer;">+ Guardar nota</button>
+    </form>
+
+    <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
+
+    <h3>Listado de notas</h3>
+    <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px;">
+      <div *ngFor="let item of listaGestion; let i = index" 
+           [style.background]="item.esNueva ? '#eef9f2' : '#f9f9f9'"
+           [style.border-color]="item.esNueva ? '#ccebd6' : '#eaeeef'"
+           style="display: flex; justify-content: space-between; align-items: center; padding: 12px; border-radius: 10px; border-style: solid; border-width: 1px;">
+        <div>
+          <strong>{{ item.titulo }} <span *ngIf="item.esNueva">(Nueva)</span></strong>
+          <p style="font-size: 13px; color: #666; margin: 3px 0 0 0;">{{ item.resumen }}</p>
+        </div>
+        <button style="background: #ffb3b3; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; color: #800000; font-size: 12px;" (click)="eliminarNota(i)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</main>

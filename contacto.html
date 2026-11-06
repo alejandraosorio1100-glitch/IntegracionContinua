@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DanNews - Contacto</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <header>
+    <h1>DanNews</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="noticias.html">Noticias</a>
+      <a href="favoritos.html">Favoritos</a>
+      <a href="contacto.html" class="activo">Contacto</a>
+      <a href="gestion.html">Gestión</a>
+    </nav>
+  </header>
+
+  <main class="contenedor-contacto">
+    <div class="tarjeta-formulario" style="max-width: 600px; margin: 0 auto;">
+      <h2>Contáctanos</h2>
+      <p style="margin-bottom: 20px; color: #666;">¿Tienes dudas o sugerencias sobre nuestras noticias?</p>
+
+      <form id="form-contacto" novalidate>
+        <div style="margin-bottom: 15px; text-align: left;">
+          <label for="nombre" style="font-weight: bold; display: block; margin-bottom: 5px;">Nombre Completo *</label>
+          <input type="text" id="nombre" placeholder="Ej. Daniela Osorio" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box;">
+          <small id="error-nombre" style="color: #e63946; display: block; margin-top: 4px; font-weight: 500;"></small>
+        </div>
+
+        <div style="margin-bottom: 15px; text-align: left;">
+          <label for="email" style="font-weight: bold; display: block; margin-bottom: 5px;">Correo Electrónico *</label>
+          <input type="email" id="email" placeholder="ejemplo@correo.com" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box;">
+          <small id="error-email" style="color: #e63946; display: block; margin-top: 4px; font-weight: 500;"></small>
+        </div>
+
+        <div style="margin-bottom: 20px; text-align: left;">
+          <label for="mensaje" style="font-weight: bold; display: block; margin-bottom: 5px;">Mensaje *</label>
+          <textarea id="mensaje" rows="4" placeholder="Escribe tu mensaje..." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box;"></textarea>
+          <small id="error-mensaje" style="color: #e63946; display: block; margin-top: 4px; font-weight: 500;"></small>
+        </div>
+
+        <button type="submit" id="btn-enviar" class="btn-catalogo" style="width: 100%; border: none; cursor: pointer;">Enviar Mensaje</button>
+
+        <div id="alerta-exito" style="display: none; margin-top: 15px; padding: 12px; background-color: #d4edda; color: #155724; border-radius: 8px; text-align: center; font-weight: 500;">
+          ✨ ¡Gracias por escribirnos! Tu mensaje ha sido enviado con éxito.
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 DanNews - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/contacto.js"></script>
+</body>
+</html>

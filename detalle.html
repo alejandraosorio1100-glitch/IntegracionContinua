@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DanNews - Detalle de Noticia</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <header>
+    <h1>DanNews</h1>
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="noticias.html">Noticias</a>
+  <a href="favoritos.html">Favoritos</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="gestion.html">Gestión</a>
+</nav>
+  </header>
+
+  <main class="contenedor-contacto">
+    <div class="tarjeta-formulario" style="text-align: left; max-width: 700px;">
+      <h2 id="titulo-detalle">Cargando noticia...</h2>
+      <img id="imagen-detalle" src="" alt="" style="width: 100%; height: 280px; object-fit: cover; border-radius: 18px; margin-bottom: 20px; display: none;">
+      <p id="contenido-detalle" style="font-size: 15px; line-height: 1.6; color: #444;"></p>
+      
+      <div style="margin-top: 30px;">
+        <a href="noticias.html" class="btn-catalogo" style="display: inline-block;">← Volver a Noticias</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 DanNews - Todos los derechos reservados.</p>
+  </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const parametros = new URLSearchParams(window.location.search);
+    const idNoticia = parseInt(parametros.get('id'));
+
+    if (idNoticia) {
+      // 1. Obtener noticias del JSON
+      fetch('data/noticias.json')
+        .then(res => res.json())
+        .then(noticiasJSON => {
+          // 2. Obtener noticias agregadas desde Gestión
+          const noticiasCRUD = JSON.parse(localStorage.getItem('noticias_crud')) || [];
+          const noticiasCRUDConID = noticiasCRUD.map((noticia, index) => ({
+            ...noticia,
+            id: noticia.id || (1000 + index)
+          }));
+
+          const todas = [...noticiasCRUDConID, ...noticiasJSON];
+          const noticiaEncontrada = todas.find(n => n.id === idNoticia);
+
+          if (noticiaEncontrada) {
+            document.getElementById('titulo-detalle').textContent = noticiaEncontrada.titulo;
+            document.getElementById('contenido-detalle').textContent = noticiaEncontrada.contenido || noticiaEncontrada.resumen;
+            
+            const img = document.getElementById('imagen-detalle');
+            img.src = noticiaEncontrada.imagen || 'img/noticia1.jpg';
+            img.style.display = 'block';
+          } else {
+            document.getElementById('titulo-detalle').textContent = 'Noticia no encontrada';
+          }
+        });
+    }
+  });
+</script>
+
+</body>
+</html>

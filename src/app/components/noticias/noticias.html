@@ -1,0 +1,12 @@
+<h2>Todas las Noticias</h2>
+
+<section class="grid-noticias">
+  <article class="tarjeta-noticia" *ngFor="let noticia of noticias">
+    <a [routerLink]="['/detalle']" [queryParams]="{ id: noticia.id }" style="text-decoration: none; color: inherit;">
+      <img [src]="noticia.imagen" [alt]="noticia.titulo">
+      <h3>{{ noticia.titulo }}</h3>
+    </a>
+    <p>{{ noticia.resumen }}</p>
+    <button (click)="guardarFavorito(noticia.id)">⭐ Guardar en favoritos</button>
+  </article>
+</section>
